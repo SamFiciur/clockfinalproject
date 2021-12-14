@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Clock</title>
+	
+	<style>
+		
+		body {
+ 			/*background-image: url("tempBackground.jpg");*/
+		}
+	
+		#parent{
+			/*background-color: royalblue;*/
+			background-image: url("tempBackground.jpg");
+			height: 768px;
+			width: 1024px;
+			margin: auto;
+			position: relative;
+			background-size: cover;
+		}
+		
+		.child{
+			height:50px;
+			position: absolute;
+			/*padding: 50px;*/
+		}
+		
+		#week{
+			/*background-color: coral;*/
+			top:50px;
+			padding-left: 20px;
+			font-size: 100px;
+		}
+		
+		#month{
+			/*background-color: darkcyan;*/
+			left: 300px;
+			top: 300px;
+			font-size: 70px;
+		}
+		
+		#day{
+			/*background-color: pink;*/
+			left: 600px;
+			top: 300px;
+			font-size: 70px;
+		}
+		
+		#year{
+			/*background-color: mediumpurple;*/
+			left: 700px;
+			top: 300px;
+			font-size: 70px;
+		}
+		
+		#hour{
+			/*background-color: honeydew;*/
+			left: 400px;
+			top: 500px;
+			font-size: 70px;
+		}
+		
+		#minute{
+			/*background-color: seagreen;*/
+			left: 500px;
+			top: 500px;
+			font-size: 70px;
+		}
+		
+		#second{
+			/*background-color: springgreen;*/
+			left: 600px;
+			top: 500px;
+			font-size: 70px;
+		}
+	
+	
+	</style>
+	
+	
+	
+</head>
+
+<body>
+	
+	<!--The parent - outside div - golds other divs-->
+	
+	<div id="parent">
+		<!--divs that are nested are children-->
+		<div id="week" class="child"></div>
+		<div id="month" class="child"></div>
+		<div id="day" class="child"></div>
+		<div id="year" class="child"></div>
+		<div id="hour" class="child"></div>
+		<div id="minute" class="child"></div>
+		<div id="second" class="child"></div>
+	</div>
+	
+<script>
+	
+	
+	
+	//clock//
+	function dateStuff(){
+		console.log('Yay, it is working.');
+	
+	var d=new Date();
+		
+		//year//
+	var y=d.getFullYear();
+		document.getElementById('year').innerHTML=y;
+		
+		//weekday//
+		var weekdays=["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+		
+	var w=d.getDay();
+		document.getElementById('week').innerHTML=weekdays[w];
+		
+		//month//
+		var months=["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+	
+	var mon=d.getMonth();
+		document.getElementById('month').innerHTML=months[mon];
+		
+		//date/
+	var day=d.getDate();
+		document.getElementById('day').innerHTML=day;
+	
+		//hour//
+	var hour=d.getHours();
+		document.getElementById('hour').innerHTML=hour;
+		
+		//minute//
+	var min=d.getMinutes();
+		document.getElementById('minute').innerHTML=min;
+		
+		//second//
+	var sec=d.getSeconds();
+		document.getElementById('second').innerHTML=sec;
+	
+	//background images//
+		
+	var parent = document.getElementById('parent');
+	
+	if (mon==0){
+		document.getElementById('parent').style.backgroundImage= "url('images/0_jan.jpg')";
+	}else if (mon==1){
+		document.getElementById('parent').style.backgroundImage= "url('images/1_feb.jpg')";
+	}else if (mon==2){
+		document.getElementById('parent').style.backgroundImage= "url('images/2_march.jpg')";
+	}else if (mon==3){
+		document.getElementById('parent').style.backgroundImage= "url('images/3_april.jpg')";
+	}else if (mon==4){
+		document.getElementById('parent').style.backgroundImage= "url('images/4_may.jpg')";
+	}else if (mon==5){
+		document.getElementById('parent').style.backgroundImage= "url('images/5_june.jpg')";
+	}else if (mon==6){
+		document.getElementById('parent').style.backgroundImage= "url('images/6_july.jpg')";
+	}else if (mon==7){
+		document.getElementById('parent').style.backgroundImage= "url('images/7_august.jpg')";
+	}else if (mon==8){
+		document.getElementById('parent').style.backgroundImage= "url('images/8_sept.jpg')";
+	}else if (mon==9){
+		document.getElementById('parent').style.backgroundImage= "url('images/9_oct.jpg')";
+	}else if (mon==10){
+		document.getElementById('parent').style.backgroundImage= "url('images/10_nov.jpg')";
+	}else if (mon==11){
+		document.getElementById('parent').style.backgroundImage= "url('images/11_dec.jpg')";
+	}
+		
+	}
+	
+	var myInt=setInterval(dateStuff,1000);
+	
+	
+</script>	
+</body>
+</html>
